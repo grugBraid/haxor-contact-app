@@ -1,0 +1,57 @@
+@page "/contacts/new"
+@using Microsoft.AspNetCore.Components.Forms
+@layout Layout
+@code {
+   [Parameter] public ContactForm Form { get; set; } = new();
+}
+
+<form action="/contacts/new"
+      method="post">
+   <fieldset>
+      <legend>Form Values</legend>
+      <div class="table rows">
+         <p>
+            <label for="email">Email</label>
+            <input name="Email"
+                   id="email"
+                   type="text"
+                   placeholder="Email"
+                   value="@Form.Email">
+            <span class="error">@(Form.Errors.ContainsKey("email") ? Form.Errors["email"] : "")</span>
+         </p>
+         <p>
+            <label for="first">First Name</label>
+            <input name="First"
+                   id="first"
+                   type="text"
+                   placeholder="First Name"
+                   value="@Form.First">
+            <span class="error">@(Form.Errors.ContainsKey("first") ? Form.Errors["first"] : "")</span>
+         </p>
+         <p>
+            <label for="last">Last Name</label>
+            <input name="Last"
+                   id="last"
+                   type="text"
+                   placeholder="Last Name"
+                   value="@Form.Last">
+            <span class="error">@(Form.Errors.ContainsKey("last") ? Form.Errors["last"] : "")</span>
+         </p>
+         <p>
+            <label for="phone">Phone</label>
+            <input name="Phone"
+                   id="phone"
+                   type="text"
+                   placeholder="Phone"
+                   value="@Form.Phone">
+            <span class="error">@(Form.Errors.ContainsKey("phone") ? Form.Errors["phone"] : "")</span>
+         </p>
+      </div>
+      <button>Save</button>
+   </fieldset>
+   <AntiforgeryToken />
+</form>
+
+<p>
+   <a href="/contacts">Back</a>
+</p>

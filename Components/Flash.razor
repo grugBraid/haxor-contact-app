@@ -1,0 +1,14 @@
+@code {
+   [CascadingParameter] HttpContext httpContext { get; set; }
+   private string flashMessage = null;
+}
+
+@{
+   flashMessage = httpContext.Session.GetString("FlashMessage");
+   httpContext.Session.Remove("FlashMessage");
+}
+
+@if (@flashMessage is not null)
+{
+   <div class="flash">@flashMessage</div>
+}

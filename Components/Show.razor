@@ -1,0 +1,17 @@
+@page "/contacts/{id}"
+@layout Layout
+@code {
+   [Parameter] public Contact Contact { get; set; }
+}
+
+<h1>@Contact.First @Contact.Last</h1>
+
+<div>
+   <div>Phone: @Contact.Phone</div>
+   <div>Email: @Contact.Email</div>
+</div>
+
+<p>
+   <a href="/contacts/@Contact.Id/edit">Edit</a>
+   <a href="/contacts">Back</a>
+</p>

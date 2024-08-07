@@ -1,0 +1,47 @@
+@page "/contacts/{id:int}/edit"
+@using Microsoft.AspNetCore.Components.Forms
+@layout Layout
+@code {
+   [Parameter] public ContactForm Form { get; set; }
+   [Parameter] public int Id { get; set; }
+}
+
+<form action="/contacts/@Id/edit" method="post">
+   <fieldset>
+      <legend>Form Values @Id</legend>
+      <div class="table rows">
+         <p>
+            <label for="email">Email</label>
+            <input name="Email" id="email" type="email" hx-get="/contacts/@Id/email" hx-target="next .error"
+               hx-trigger="change, keyup delay:200ms" placeholder="Email" value="@Form.Email">
+            <span class="error">@(Form.Errors.ContainsKey("email") ? Form.Errors["email"] : "")</span>
+         </p>
+         <p>
+            <label for="first_name">First Name</label>
+            <input name="First" id="first_name" type="text" placeholder="First Name" required value="@Form.First">
+            <span class="error">@(Form.Errors.ContainsKey("first") ? Form.Errors["first"] : "")</span>
+         </p>
+         <p>
+            <label for="last_name">Last Name</label>
+            <input name="Last" id="last_name" type="text" placeholder="Last Name" value="@Form.Last">
+            <span class="error">@(Form.Errors.ContainsKey("last") ? Form.Errors["last"] : "")</span>
+         </p>
+         <p>
+            <label for="phone">Phone</label>
+            <input name="Phone" id="phone" type="text" placeholder="Phone" value="@Form.Phone">
+            <span class="error">@(Form.Errors.ContainsKey("phone") ? Form.Errors["phone"] : "")</span>
+         </p>
+      </div>
+      <button>Save</button>
+   </fieldset>
+   <AntiforgeryToken />
+</form>
+
+<button id="delete-btn" hx-get="/contacts/@Id/delete" hx-push-url="true"
+   hx-confirm="Are you sure you want to delete this contact?" hx-target="body">
+   Delete Contact
+</button>
+
+<p>
+   <a href="/contacts">Back</a>
+</p>

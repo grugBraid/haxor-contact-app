@@ -1,0 +1,37 @@
+[
+  {
+    "Id": 1,
+    "First": "Bradey",
+    "Last": "Stephens",
+    "Phone": "602-344-5726",
+    "Email": "bradey@example.com"
+  },
+  {
+    "Id": 2,
+    "First": "Carson",
+    "Last": "Gross",
+    "Phone": "111-222-3333",
+    "Email": "carson@example.com"
+  },
+  {
+    "Id": 3,
+    "First": "Joan",
+    "Last": "Ross",
+    "Phone": "222-333-4444",
+    "Email": "joan@example.com"
+  },
+  {
+    "Id": 4,
+    "First": "Sue",
+    "Last": "Cross",
+    "Phone": "333-444-5555",
+    "Email": "sue@example.com"
+  },
+  {
+    "Id": 5,
+    "First": "Bob",
+    "Last": "Most",
+    "Phone": "444-555-6666",
+    "Email": "bob@example.com"
+  }
+]

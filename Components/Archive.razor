@@ -1,0 +1,23 @@
+<div id="archive-ui" hx-target="this" hx-swap="outerHTML">
+   @if (Archiver.Status == "Waiting")
+   {
+      <button hx-post="/contacts/archive">
+         Download Contact Archive
+      </button>
+   }
+   else if (Archiver.Status == "Running")
+   {
+      <div hx-get="/contacts/archive" hx-trigger="load delay:500ms">
+         Creating Archive...
+         <div class="progress">
+            <div id="archive-progress" class="progress-bar" style="width:@(Archiver.Progress * 100)%"></div>
+         </div>
+      </div>
+   }
+   else
+   {
+      <a hx-boost="false" href="/contacts/archive/file" _="on load click() me">Archive Downloading! Click here if the
+         download does not start.</a>
+      <button hx-delete="/contacts/archive">Clear Download</button>
+   }
+</div>
