@@ -2,7 +2,7 @@
 
 Recreating the Contact App from the [Hypermedia.Systems](https://hypermedia.systems) book in .net 8
 
-Stack: Hyperscript Alpine htmX razOR => haxor?
+Stack: Hyperscript Alpine.js htmx Blazor => haxor?
 
 Linux, Mac, and Windows  
 ````dotnet run````
